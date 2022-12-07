@@ -12,12 +12,11 @@ with open("input.txt") as file:
             sub_list.append(input[idx + pos])
             pos += 1
 
-        for idx2,c in enumerate(sub_list):
+        for idx2, c in enumerate(sub_list):
             duplicate = any([c in c2 for c2 in sub_list[idx2+1::]])
             if duplicate:
                 break;
-            
-            
+             
         if not duplicate:
             answer = idx + 4
             break;
