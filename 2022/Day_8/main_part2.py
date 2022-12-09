@@ -27,10 +27,10 @@ for idx1, i in enumerate(trees):
             vertarr.append(trees[pointer][idx2])
             pointer += 1
         up = countTrees(j, vertarr[::-1][len(vertarr)-idx1::])
-        bottom = countTrees(j, vertarr[idx1+1::])
+        down = countTrees(j, vertarr[idx1+1::])
 
-        treeScenic = left * right * up * bottom
-        print(f'{idx1} {idx2} {j} l {left} r {right} u {up} b {bottom} t {treeScenic}')
+        treeScenic = left * right * up * down
+        print(f'{idx1} {idx2} {j} l {left} r {right} u {up} d {down} t {treeScenic}')
             
         if total < treeScenic:
             total = treeScenic
