@@ -5,18 +5,18 @@ sum = 0
 sprite_pos = 0
 sprite = []
 for idx, i in enumerate(range(40)):
-    sprite.append('.')
+    sprite.append(' ')
 
-sprite[sprite_pos] = '#'
-sprite[sprite_pos+1] = '#'
-sprite[sprite_pos+2] = '#'
+sprite[sprite_pos] = '1'
+sprite[sprite_pos+1] = '1'
+sprite[sprite_pos+2] = '1'
 
 grid = []
 
 for i in range(6):
     horizontal = []
     for j in range(40):
-        horizontal.append('.')
+        horizontal.append(' ')
     grid.append(horizontal)
 
 row = 0
@@ -28,7 +28,7 @@ with open("input.txt") as file:
             row +=1
         
         if row <= 5:
-            grid[row][(cyclus % 40)-1] = '#' if sprite[(cyclus % 40)-1] == '#' else '.' 
+            grid[row][(cyclus % 40)-1] = '1' if sprite[(cyclus % 40)-1] == '1' else ' ' 
 
         if cyclus == next_calc:
             sum += cyclus * x
@@ -39,7 +39,7 @@ with open("input.txt") as file:
             if cyclus % 40 == 0:
                 row +=1
             if row <= 5:
-                grid[row][(cyclus % 40)-1] = '#' if sprite[(cyclus % 40)-1] == '#' else '.'
+                grid[row][(cyclus % 40)-1] = '1' if sprite[(cyclus % 40)-1] == '1' else ' '
                  
             if cyclus == next_calc:
                 sum += cyclus * x
@@ -49,11 +49,11 @@ with open("input.txt") as file:
             for idx, i in enumerate(range(40)):
                 sprite[idx] = idx
 
-            sprite[x-1] = '#'
+            sprite[x-1] = '1'
             if x <= 39:
-                sprite[x] = '#'
+                sprite[x] = '1'
             if x+1 <= 39:
-                sprite[x+1] = '#'
+                sprite[x+1] = '1'
             continue
 
 print(sum)
